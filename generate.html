@@ -1,0 +1,131 @@
+<div ng-app="generateApp">
+<div class="nonMenu" ng-show="!menuStatus">
+<div class="container-fluid">
+<div class="row header">
+<div class="col-lg-12">
+<span class="pull-left col-lg-2" ng-click="menuStatus=true">
+<a href><h2><i class="fa fa-bars" aria-hidden="true"></i> MENU</h2></a>
+</span>
+<span class="pull-right brand col-lg-2">
+<a href><h2><i class="fa fa-magic" aria-hidden="true"></i> PasGen</h2></a>
+</span>
+</div>
+</div>
+</div>
+
+<div class="container">
+
+<div class="row col-md-5 col-md-offset-4 text-center">
+<h4 class="">Enter the length of your password</h4>
+<select class="form-control col-md-6" ng-change="GetValue()" ng-model="lengthPwd">
+<option ng-repeat="n in range(1,100)">{{n}}</option>
+</select>
+</div>
+
+
+<ul class="row unstyled cards col-md-offset-1">
+<li class="col-lg-4 col-md-5 card" ng-repeat="parameter in parameterList">
+	<label id="sliderLabel">
+	<input type="checkbox" ng-model="parameter.done">
+	<span class="done-{{parameter.done}} h3">{{parameter.text}}</span>
+	</label>
+
+<div class="custOrDefault" ng-hide="!parameter.done">
+	<div class="radio">
+	<label>
+	<input type="radio" name="myRadio" ng-model="anyNum" value="any">
+	Any number within the range?
+	</label>
+	</div>
+	<div class="radio">
+	<label>
+	<input type="radio" name="myRadio" ng-model="anyNum" value="custom">
+	Choose a custom number?
+	</label>
+	</div>
+</div>
+
+
+<select class="form-control" ng-hide="!parameter.done" ng-disabled="anyNum=='any'" ng-change="GetAllVal()" ng-model="valuesArr[$index]" disabled>
+	<option ng-repeat="n in range(1,100)">{{n}}</option>
+</select>
+<!-- <h4>{{valuesArr[$index]}}</h4> -->
+
+</li>
+</ul>
+<div class="text-center">
+	<button type="submit" class="btn btn-warning" ng-click="getPassword()">Get Your Password!</button>
+</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+		<div class="h3 text-center">
+			{{pwd_text}} <span><button class="btn btn-success btn-small" ng-click="shuffle()" ng-hide="pwd_text == null || pwd_text == ''"><i class="fa fa-refresh fa-1x" aria-hidden="true"></i></button></span>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+<!--footer starts-->
+	<div class="container-fluid footer">
+	<div class="row">
+	<div class="col-xs-3" ng-repeat="footeritem in footerList">
+	<ul class="list-unstyled footer-item">
+	<li class="h4">{{footeritem.title}}<li>
+	<li><a href="#">{{footeritem.textItem1}}</a></li>
+	<li><a href="#">{{footeritem.textItem2}}</a></li>
+	<li><a href="#">{{footeritem.textItem3}}</a></li>
+	</ul>
+	</div>
+	</div>
+	<hr>
+	<div class="row">
+	<div class="col-xs-8">
+	<ul class="list-unstyled list-inline pull-left footer-item">
+	<li><a href="#">Terms of Service</a></li>
+	<li><a href="#">Contact Us</a></li>
+	<li><a href="#">Privacy</a></li>
+	</ul>
+	</div>
+	<div class="col-xs-4">
+	<p class="text-muted pull-right">© 2016 PasGen. All rights reserved</p>
+	</div>
+	</div>
+	</div>
+	</div> 
+<!--non menu ends-->
+<!--footer ends-->
+
+<div class="container-fluid menu-container" ng-show="menuStatus">
+<div class="row">
+<div class="col-lg-12 col-md-12 text-center">
+	<ul class="menu-list">
+		<li class="menu-item h2"><a href="#/custPwd">Custom Password: <h4 class="menu-desc-panel">this is blah blah..this is blah blah..this is blah blah..this is blah blah..</h4></a></li>
+		<li class="menu-item h2"><a href="#/randPwd">Random Passowrd: <h4 class="menu-desc-panel">this is blah blah..this is blah blah..this is blah blah..this is blah blah..</h4></a></li>
+	</ul>
+</div>
+</div>
+<a class="pull-right close-menu-btn" href ng-click="menuStatus=false"><i class="fa fa-times-circle-o fa-3x" aria-hidden="true"></i>
+</a>
+</div>
+
+
+<!--app ends-->
+</div>
+
+
+
+
+
+
+<!--
+* Change menu style : like csg
+* Change checkbox style : http://stackoverflow.com/questions/19145504/style-a-checkbox-in-firefox-remove-check-and-border
+* Custom pwd to include custom text : like name, place, date
+* radio buttons not working
+* Cool usernames generation 
+-->
+<!-- http://jharaphula.com/how-to-use-switch-case-in-angularjs/ -->

@@ -1,0 +1,78 @@
+@import url(http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.header{height:85px;background-color:#240747;}
+.header div{line-height:4;}
+.header div a{color: #fff;text-decoration: none;}
+.brand{font-style: italic;}
+.cards,.menu-container div div ul{list-style-type: none;}
+.card{padding:5px;-webkit-box-shadow: 10px 10px 5px 2px #A1A1A1;box-shadow: 10px 10px 5px 2px #A1A1A1; margin: 20px;  min-height: 300px; max-height:300px; border:1px solid #e3e3e3;}
+#sliderLabel{background-color: #F6E4AD;border-bottom: 1px solid grey;box-shadow: 1px 1px 3px 3px #a1a1a1;min-width: 100%;padding-bottom: 8px;}
+input[type=checkbox] + span:before {
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 19px;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #c8c6c6;
+    width: 75px;
+    height: 75px;
+    border-radius: 2px;
+    margin: 0 5px 0 0;
+}
+input[type="checkbox"]:before{
+    position: relative;
+    display: block;
+    width: 11px;
+    height: 11px;
+    border: 1px solid #808080;
+    content: "";
+    background: #FFF;
+}
+input[type="checkbox"]:after{
+    position: relative;
+    display: block;
+    left: 2px;
+    top: -11px;
+    width: 7px;
+    height: 7px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #B3B3B3 #dcddde #dcddde #B3B3B3;
+    content: "";
+    background-image: linear-gradient(135deg, #B1B6BE 0%,#FFF 100%);
+    background-repeat: no-repeat;
+    background-position:center;
+}
+
+.footer{
+background-color:#240747;
+color:#fff;
+padding:10px;
+margin-top:20px;
+bottom:0;
+}
+.footer-item li a{
+text-decoration:none;
+color:#e3e3e3;
+}
+.menu-item{
+padding:30px;
+}
+.menu-list li:hover{
+border:1px solid #fff;
+}
+.menu-desc-panel{
+padding:20px;
+}
+.menu-container div div ul li a{
+text-decoration:none;
+color:#240747;
+}
+.menu-container div div ul li a h4{ 
+padding:30px;
+}
+.close-menu-btn{top:0;position:absolute;right:0;padding:10px;}
+.menu-container{padding:30px;top:50%;min-height:800px;background-color:#e3e3e3;}
